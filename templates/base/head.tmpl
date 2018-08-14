@@ -60,7 +60,7 @@
 	*/`}}
 	</script>
 
-	<link rel="shortcut icon" href="{{AppSubUrl}}/img/favicon.png" />
+	<link rel="shortcut icon" href="{{AppSubUrl}}/img/favicon.svg" />
 	<link rel="mask-icon" href="{{AppSubUrl}}/img/gitea-safari.svg" color="#609926">
 	<link rel="preload" href="{{AppSubUrl}}/vendor/assets/font-awesome/css/font-awesome.min.css" as="style" onload="this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="{{AppSubUrl}}/vendor/assets/font-awesome/css/font-awesome.min.css"></noscript>
@@ -123,7 +123,7 @@
 {{else}}
 	<meta property="og:title" content="{{AppName}}">
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="{{AppSubUrl}}/img/favicon.png" />
+	<meta property="og:image" content="{{AppSubUrl}}/img/favicon.svg" />
 	<meta property="og:url" content="{{AppUrl}}" />
 	<meta property="og:description" content="{{MetaDescription}}">
 {{end}}
@@ -142,9 +142,7 @@
 				<div class="ui container" id="navbar">
 					<div class="item brand" style="justify-content: space-between;">
 						<a href="{{AppSubUrl}}/" href="{{AppSubUrl}}/">
-							<!-- unfoldingWord intentionally uses /img/favicon.png here,
-							  -- instead of following upstream -->
-							<img class="ui mini image" src="{{AppSubUrl}}/img/favicon.png">
+							<img class="ui mini image" src="{{AppSubUrl}}/img/favicon.svg">
 						</a>
 						<div class="ui basic icon button mobile-only" id="navbar-expand-toggle">
 							<i class="sidebar icon"></i>
