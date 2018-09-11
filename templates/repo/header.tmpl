@@ -1,5 +1,12 @@
 <div class="header-wrapper">
-<div>AppUrl: {{AppUrl}}</div>
+
+{{$isdv:=eq AppUrl "https://content-dev.bibletranslationtools.org/"}}
+{{$isqa:=eq AppUrl "https://content-qa.bibletranslationtools.org/"}}
+{{$dv:=and $isdv "http://read-dev.bibletranslationtools.org/u/"}}
+{{$qa:=and $isqa "http://read-qa.bibletranslationtools.org/u/"}}
+{{$pr:="http://read.bibletranslationtools.org/u/"}}
+{{$readerBaseLink:=or $dv $qa $pr}}
+
 {{with .Repository}}
 	<div class="ui container">
 		<div class="ui stackable grid header-grid">
@@ -16,11 +23,11 @@
 
 			<div class="ui ten wide right aligned column">
 				<div class="ui compact labeled button" id="see-on-door43-button" tabindex="0">
-					<a class="ui compact button" target="_blank" href="http://read-dev.bibletranslationtools.org/u/{{.Owner.Name}}/{{.Name}}/">
+					<a class="ui compact button" target="_blank" href="{{$readerBaseLink}}{{.Owner.Name}}/{{.Name}}/">
 						<!-- empty icon ensures that this button is same size as Watch/Star/Fork buttons -->
 						<i class="icon empty-icon"></i><span>{{$.i18n.Tr "repo.see_on_door43"}}</span>
 					</a>
-					<a class="ui basic left pointing label" href="http://read-dev.bibletranslationtools.org/u/{{.Owner.Name}}/{{.Name}}/">
+					<a class="ui basic left pointing label" href="{{$readerBaseLink}}{{.Owner.Name}}/{{.Name}}/">
 						&#xfeff;<img id="door43-logo" src="/img/favicon.svg"/>
 					</a>
 				</div>
