@@ -207,17 +207,31 @@
                     padding-top: 8px;
                     padding-bottom: 5px;
                     font-weight: normal;
-
-                    &:first-child {
-                        display: block;
-                        position: relative;
-                        width: 325%;
-                    }
                 }
+
                 .ui.avatar {
                     margin-bottom: 5px;
                 }
+
+                .commit-summary a {
+                    text-decoration: underline;
+                    text-decoration-style: dashed;
+
+                    &:hover {
+                        text-decoration-style: solid;
+                    }
+
+                    &.default-link {
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                            text-decoration-style: solid;
+                        }
+                    }
+                }
             }
+            
             tbody {
                 .octicon {
                     margin-left: 3px;
