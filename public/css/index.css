@@ -2982,6 +2982,9 @@ tbody.commit-list {
 .repository .header-wrapper .ui.tabular .fa {
   margin-right: 5px;
 }
+#manage_topic {
+  visibility: hidden;
+}
 .CodeMirror {
   font: 14px Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
