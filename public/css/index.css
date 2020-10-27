@@ -2985,6 +2985,35 @@ tbody.commit-list {
 #manage_topic {
   visibility: hidden;
 }
+.ui.small.label.topic {
+  margin-bottom: 4px;
+}
+.repo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.repo-header .repo-buttons {
+  display: flex;
+  align-items: center;
+}
+.repo-buttons .disabled-repo-button .label {
+  opacity: 0.5;
+}
+.repo-buttons .disabled-repo-button a.button {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.repo-buttons .disabled-repo-button a.button:hover {
+  background: none !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  box-shadow: 0 0 0 1px rgba(34, 36, 38, 0.15) inset !important;
+}
+.repo-buttons .ui.labeled.button > .label {
+  border-left: 0 !important;
+  margin: 0 !important;
+}
 .CodeMirror {
   font: 14px Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
