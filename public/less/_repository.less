@@ -207,17 +207,31 @@
                     padding-top: 8px;
                     padding-bottom: 5px;
                     font-weight: normal;
-
-                    &:first-child {
-                        display: block;
-                        position: relative;
-                        width: 325%;
-                    }
                 }
+
                 .ui.avatar {
                     margin-bottom: 5px;
                 }
+
+                .commit-summary a {
+                    text-decoration: underline;
+                    text-decoration-style: dashed;
+
+                    &:hover {
+                        text-decoration-style: solid;
+                    }
+
+                    &.default-link {
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                            text-decoration-style: solid;
+                        }
+                    }
+                }
             }
+            
             tbody {
                 .octicon {
                     margin-left: 3px;
@@ -231,19 +245,58 @@
                     }
                 }
             }
+
             td {
-                padding-top: 8px;
-                padding-bottom: 8px;
+                padding-top: 0;
+                padding-bottom: 0;
+                overflow: initial;
+        
+                &.name {
+                    max-width: 150px;
+                }
+        
+                &.message {
+                    max-width: 400px;
+                }
+        
+                &.age {
+                    width: 120px;
+                }
+        
+                .truncate {
+                    display: inline-block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    width: 100%;
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                }
+        
+                a {
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                }
+        
+                .at {
+                    margin-left: 3px;
+                    margin-right: 3px;
+                }
+        
+                > * {
+                    vertical-align: middle;
+                }
             }
-                        td.message .isSigned {
-                                cursor: default;
-                        }
+
+            td.message .isSigned {
+                    cursor: default;
+            }
             tr:hover {
                 background-color: #ffffEE;
             }
-                        .jumpable-path {
-                                color: #888;
-                        }
+            .jumpable-path {
+                    color: #888;
+            }
         }
 
         .non-diff-file-content {
@@ -1708,4 +1761,44 @@ tbody.commit-list {
 
 .repository .header-wrapper .ui.tabular .fa {
 	margin-right: 5px;
+}
+
+#manage_topic {
+    visibility: hidden;
+}
+
+.ui.small.label.topic {
+    margin-bottom: 4px;
+}
+
+.repo-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.repo-header .repo-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.repo-buttons .disabled-repo-button .label {
+    opacity: .5;
+}
+
+.repo-buttons .disabled-repo-button a.button {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.repo-buttons .disabled-repo-button a.button:hover {
+    background: none !important;
+    color: rgba(0, 0, 0, .6) !important;
+    box-shadow: 0 0 0 1px rgba(34, 36, 38, .15) inset !important;
+}
+
+.repo-buttons .ui.labeled.button > .label {
+    border-left: 0 !important;
+    margin: 0 !important;
 }
