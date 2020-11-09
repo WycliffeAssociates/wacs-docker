@@ -1,10 +1,12 @@
 name: Build CSS
 
-on: [ workflow_dispatch ]
+on:
+  push:
+    branches-ignore:
+      # Don't run on continuous-deployment branches
+      content*.bibletranslationtools.org
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
     runs-on: ubuntu-latest
 
@@ -14,9 +16,16 @@ jobs:
         uses: actions/setup-node@v1
       - name: Build CSS with lessc
         run: npx -p less lessc public/less/index.less public/css/index.css
+      - name: Minify CSS
+        run: |
+          npx -p clean-css-cli cleancss public/css/index.css -o public/css/index-min.css
+          mv public/css/index-min.css public/css/index.css
       - name: Commit and push update
         run: |
           git config --global user.name "gogs-custom[bot]"
           git config --global user.email "russell_aunger@wycliffeassociates.org"
           git add public/css/index.css
-          git commit -m "Build index.css from index.less" && git push
+          git commit -m "Build index.css from index.less"
+          if [ $? -eq 0 ]
+          then git push
+          fi

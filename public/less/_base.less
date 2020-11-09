@@ -60,9 +60,8 @@ pre, code {
     hyphens: auto;
 }
 .full.height {
-    padding: 0;
-    margin: 0 0 -@footer-margin*2 0;
-    min-height: 100%;
+    flex-grow: 1;
+    padding-bottom: 80px;
 }
 .following.bar {
     z-index: 900;
@@ -562,3 +561,146 @@ footer {
     border-bottom-width: 0 !important;
     margin-bottom: 2px !important;
 }
+
+.lines-num {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: right !important;
+    color: rgba(27, 31, 35, .3);
+    width: 1%;
+    user-select: none;
+    font-family: "SF Mono",Consolas,Menlo,"Liberation Mono",Monaco,"Lucida Console",monospace;
+
+    span {
+      &.bottom-line {
+        &:after {
+          border-bottom: 1px solid #eaecef;
+        }
+      }
+
+      &:after {
+        content: attr(data-line-number);
+        line-height: 20px !important;
+        padding: 0 10px;
+        cursor: pointer;
+        display: block;
+      }
+    }
+  }
+
+  .lines-type-marker {
+    vertical-align: top;
+  }
+
+  .lines-num,
+  .lines-code {
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: top;
+
+    pre,
+    ol {
+      background-color: inherit;
+      margin: 0;
+      padding: 0 !important;
+
+      li {
+        display: block;
+        width: calc(100% - 1ch);
+        padding-left: 1ch;
+      }
+    }
+  }
+
+  .lines-code {
+    padding-left: 5px;
+  }
+
+  .lines-code code {
+    white-space: pre;
+  }
+
+  .lines-code.active,
+  .lines-code .active {
+    background: #fffbdd !important;
+  }
+
+  .blame .lines-num {
+    padding: 0 !important;
+    background-color: #f5f5f5;
+  }
+
+  .blame .lines-code {
+    padding: 0 !important;
+  }
+
+  .lines-commit {
+    vertical-align: top;
+    color: #999999;
+    padding: 0 !important;
+    background: #f5f5f5;
+    width: 1%;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+
+    .blame-info {
+      width: 350px;
+      max-width: 350px;
+      display: block;
+      user-select: none;
+      padding: 0 0 0 10px;
+
+      .blame-data {
+        display: flex;
+        font-family: var(--fonts-regular);
+
+        .blame-message {
+          flex-grow: 2;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          line-height: 20px;
+        }
+
+        .blame-time,
+        .blame-avatar {
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    .ui.avatar.image {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  .lines-code,
+  .lines-commit {
+    .bottom-line {
+      border-bottom: 1px solid #eaecef;
+    }
+  }
+  .code-view {
+    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    &.has-context-menu {
+      overflow: visible;
+      overflow-x: visible;
+      overflow-y: visible;
+    }
+
+    *:not(.fa):not(.svg):not(.icon) {
+      font-size: 12px;
+      font-family: "SF Mono",Consolas,Menlo,"Liberation Mono",Monaco,"Lucida Console",monospace;
+      line-height: 20px;
+    }
+
+    table {
+      width: 100%;
+    }
+  }
