@@ -2,9 +2,9 @@
 
 {{$isdv:=eq AppUrl "https://content-dev.bibletranslationtools.org/"}}
 {{$isqa:=eq AppUrl "https://content-qa.bibletranslationtools.org/"}}
-{{$dv:=and $isdv "http://read-dev.bibletranslationtools.org/u/"}}
-{{$qa:=and $isqa "http://read-qa.bibletranslationtools.org/u/"}}
-{{$pr:="http://read.bibletranslationtools.org/u/"}}
+{{$dv:=and $isdv "http://read-dev.bibleineverylanguage.org/"}}
+{{$qa:=and $isqa "http://read-qa.bibleineverylanguage.org/"}}
+{{$pr:="http://read.bibleineverylanguage.org/"}}
 {{$readerBaseLink:=or $dv $qa $pr}}
 
 {{with .Repository}}
